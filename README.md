@@ -30,7 +30,6 @@ A curated directory of black owned restaurants and bars in NYC
 
 ## Dependencies
 
-- react
 - Express
 - Passport.js
 

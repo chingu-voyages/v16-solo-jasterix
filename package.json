@@ -1,0 +1,31 @@
+{
+  "name": "blck-city",
+  "version": "1.0.0",
+  "description": "A curated directory of black owned restaurants and bars in NYC",
+  "main": "index.js",
+  "scripts": {
+    “devStart”: “nodemon server.js”,
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyages/v16-solo-jasterix.git"
+  },
+  "author": "jasterix",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chingu-voyages/v16-solo-jasterix/issues"
+  },
+  "homepage": "https://github.com/chingu-voyages/v16-solo-jasterix#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^7.3.0",
+    "moment": "^2.17.1",
+    "moment-timezone": "^0.5.13",
+    "mongoose": "^5.9.1",
+    "node-uuid": "^1.4.8",
+    "swagger-ui-express": "^2.0.13",
+    "sync-request": "^4.0.2"
+  }
+}
