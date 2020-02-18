@@ -1,9 +1,3 @@
-#Blackcity
-
-# v16-solo-jasterix
-
-Add-project-description-here | Voyage-16 | https://chingu.io/ | Twitter: https://twitter.com/ChinguCollabs
-
 <h1 align="center">BlckCity</h1>
 <h3 align="center">
 A curated directory of black owned restaurants and bars in NYC
@@ -29,3 +23,9 @@ A curated directory of black owned restaurants and bars in NYC
 ## License
 
 MIT ©jasterix
+
+#Blackcity
+
+# v16-solo-jasterix
+
+Add-project-description-here | Voyage-16 | https://chingu.io/ | Twitter: https://twitter.com/ChinguCollabs
