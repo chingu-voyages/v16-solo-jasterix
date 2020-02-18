@@ -2,6 +2,13 @@
 <h3 align="center">
 A curated directory of black owned restaurants and bars in NYC
 <p align="center">
+<p>Categories</p>
+<ul>
+<li>Food</li>
+<li>Drinks</li>
+<li>Art</li>
+<li>Music</li>
+</ul>
 
 ## Clone the source locally
 
@@ -9,7 +16,7 @@ A curated directory of black owned restaurants and bars in NYC
 
 ## Features
 
-- [ ] Signup/login using Passport.js
+- [ ] Sign up/login using Passport.js
 - [ ] Google maps integration
 - [ ] Explore nearby options
 - [ ] Download Google Maps list
