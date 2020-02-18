@@ -21,6 +21,13 @@ A curated directory of black owned restaurants and bars in NYC
 - [ ] Explore nearby options
 - [ ] Download Google Maps list
 
+## API Endpoints
+
+- POST (add a location)
+- GET (retrieve a singular or a list of locations)
+- PATCH (update/modify a location)
+- DELETE (remove a location)
+
 ## Dependencies
 
 - react
