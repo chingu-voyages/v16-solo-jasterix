@@ -19,8 +19,30 @@ router.get("/", (request, response, next) => {
     });
 });
 
+// GET one spot
+router.get("/:spotId", (req, res, next) => {
+  const id = req.params.spotId;
+  Spot.findById(id)
+    .exec()
+    .then(doc => {
+      console.log("From database", doc);
+      if (doc) {
+        res.status(200).json(doc);
+      } else {
+        res
+          .status(404)
+          .json({ message: "No valid entry found for provided ID" });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
+});
+
+// POST spot
 router.post("/", (request, response, next) => {
-  const spot = new spot({
+  const spot = new Spot({
     _id: new mongoose.Types.ObjectId(),
     name: request.body.name,
     address: request.body.address,

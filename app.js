@@ -1,9 +1,9 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+// let Spot = mongoose.model("spot");
 
 const morgan = require("morgan");
 const spotRoutes = require("./api/routes/spots");
