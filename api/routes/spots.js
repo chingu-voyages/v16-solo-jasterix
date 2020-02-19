@@ -9,7 +9,7 @@ router.get("/", (request, response, next) => {
     .exec()
     .then(docs => {
       console.log(docs);
-      res.status(200).json(docs);
+      response.status(200).json(docs);
     })
     .catch(error => {
       console.log(error);
@@ -20,13 +20,13 @@ router.get("/", (request, response, next) => {
 });
 
 router.post("/", (request, response, next) => {
-  const product = new product({
+  const spot = new spot({
     _id: new mongoose.Types.ObjectId(),
     name: request.body.name,
     address: request.body.address,
     spotType: request.body.spotType
   });
-  product
+  spot
     .save()
     .then(result => {
       console.log(result);
@@ -40,3 +40,5 @@ router.post("/", (request, response, next) => {
     error: error
   });
 });
+
+module.exports = router;
