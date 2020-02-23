@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const Spot = require("../models/spot");
 
+//////////////////////////GET all spots
 router.get("/", (request, response, next) => {
   Spot.find()
     .exec()
@@ -19,7 +20,7 @@ router.get("/", (request, response, next) => {
     });
 });
 
-////////////////////////////// GET one spot
+////////////////////////////// GET one spot by ID
 router.get("/:spotId", (req, res, next) => {
   const id = req.params.spotId;
   Spot.findById(id)
@@ -86,6 +87,10 @@ router.patch("/:spotId", (request, response, next) => {
 });
 
 router.delete( ":/spotId", ( request, response, next ) > {
-  
+  const id = request.params.spotId
+  Spot.remove( { _id: id } )
+    .exec()
+    .then()
+  .catch()
 })
 module.exports = router;
