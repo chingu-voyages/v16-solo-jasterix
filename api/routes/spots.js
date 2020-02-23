@@ -95,6 +95,9 @@ router.delete("/:spotId", (request, response, next) => {
     })
     .catch(error => {
       console.log(error);
+      response.status(500).json({
+        error: error
+      });
     });
 });
 module.exports = router;
