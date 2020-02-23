@@ -86,11 +86,11 @@ router.patch("/:spotId", (request, response, next) => {
     });
 });
 
-router.delete( ":/spotId", ( request, response, next ) > {
-  const id = request.params.spotId
-  Spot.remove( { _id: id } )
+router.delete("/:spotId", (request, response, next) => {
+  const id = request.params.spotId;
+  Spot.remove({ _id: id })
     .exec()
     .then()
-  .catch()
-})
+    .catch();
+});
 module.exports = router;
