@@ -63,4 +63,26 @@ router.post("/", (request, response, next) => {
   });
 });
 
+// PATCH;
+
+router.patch("/:spotId", (request, response, next) => {
+  const id = request.params.spotId;
+  const updateOps = {};
+  for (const ops of request.body) {
+    updateOps[onpopstate.propName] = ops.value;
+  }
+  Spot.update({ _id: id }, { $set: updateOps })
+    .exec()
+    .then(result => {
+      console.log(result);
+      response.status(200).json(result);
+    })
+    .catch(error => {
+      console.log(error);
+      response.status(500).json({
+        error: error
+      });
+    });
+});
+
 module.exports = router;
