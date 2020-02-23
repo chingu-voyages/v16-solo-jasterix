@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 const Spot = require("../models/spot");
 
+// CREATE a spot
+
 //////////////////////////GET all spots
 router.get("/", (request, response, next) => {
   Spot.find()
