@@ -19,7 +19,7 @@ router.get("/", (request, response, next) => {
     });
 });
 
-// GET one spot
+////////////////////////////// GET one spot
 router.get("/:spotId", (req, res, next) => {
   const id = req.params.spotId;
   Spot.findById(id)
@@ -40,7 +40,7 @@ router.get("/:spotId", (req, res, next) => {
     });
 });
 
-// POST spot
+///////////////////////// POST spot
 router.post("/", (request, response, next) => {
   const spot = new Spot({
     _id: new mongoose.Types.ObjectId(),
@@ -63,7 +63,7 @@ router.post("/", (request, response, next) => {
   });
 });
 
-// PATCH;
+/////////////////// PATCH
 
 router.patch("/:spotId", (request, response, next) => {
   const id = request.params.spotId;
@@ -85,4 +85,7 @@ router.patch("/:spotId", (request, response, next) => {
     });
 });
 
+router.delete( ":/spotId", ( request, response, next ) > {
+  
+})
 module.exports = router;
