@@ -90,7 +90,11 @@ router.delete("/:spotId", (request, response, next) => {
   const id = request.params.spotId;
   Spot.remove({ _id: id })
     .exec()
-    .then()
-    .catch();
+    .then(result => {
+      response.status(200).json(result);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 });
 module.exports = router;
