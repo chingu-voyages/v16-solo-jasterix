@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const spotSchema = mongoose.Schema({
+const spotSchema = mongoose.Schema( {
   _id: mongoose.Schema.Types.ObjectId,
   name: { type: String },
   spotType: { type: String },
@@ -11,6 +11,9 @@ const spotSchema = mongoose.Schema({
   addressCity: { type: String, required: false },
   addressState: { type: String, required: false },
   addressZipcode: { type: Number, required: false }
+}, {
+    timestamps: true;
+}
 });
 
 module.exports = mongoose.model("Spot", spotSchema);
