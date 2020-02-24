@@ -1,24 +1,23 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
+
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-// let Spot = mongoose.model("spot");
 
-const morgan = require("morgan");
 const spotRoutes = require("./api/routes/spots");
+
 // Lets server accept json
 app.use(express.json());
+app.use(morgan("dev"));
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection;
 db.once("open", () => console.log("Connected to Database"));
-// db.on("error", error => console.error(error));
 
-// const subscribersRouter = require("./routes/subscribers");
-// app.use("/subscribers", subscribersRouter);
-
-app.use(morgan("dev"));
+// Routes which should handle requests
+app.use("/spots", spotRoutes);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -37,10 +36,6 @@ app.use((req, response, next) => {
   }
   next();
 });
-
-// Routes which should handle requests
-app.use("/spots", spotRoutes);
-// app.use("/orders", orderRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
