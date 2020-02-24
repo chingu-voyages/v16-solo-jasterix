@@ -8,7 +8,7 @@ const spotSchema = mongoose.Schema({
   coverImageUrl: { type: String, required: false },
   addressNumber: { type: Number, required: false },
   addressStreet: { type: String, required: false },
-  addresCity: { type: String, required: false },
+  addressCity: { type: String, required: false },
   addressState: { type: String, required: false },
   addressZipcode: { type: Number, required: false }
 });

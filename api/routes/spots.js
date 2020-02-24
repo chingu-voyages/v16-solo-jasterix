@@ -47,16 +47,21 @@ router.post("/", (request, response, next) => {
     _id: new mongoose.Types.ObjectId(),
     name: request.body.name,
     address: request.body.address,
-    spotType: request.body.spotType
+    spotType: request.body.spotType,
+    addressNumber: request.body.addressNumber,
+    addressStreet: request.body.addressStreet,
+    addressCity: request.body.addressCity,
+    addressState: request.body.addressState,
+    addressZipcode: request.body.addressZipcode
   });
+
   spot
     .save()
     .then(result => {
-      console.log(result);
       response.status(201).json({
-        message: "Handling POST requests to /spots",
-        createdSpot: result
+        message: "Created a new Spot sucessfully"
       });
+      console.log(result);
     })
     .catch(error => console.log(error));
   response.status(500).json({
