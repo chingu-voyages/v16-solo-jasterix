@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 
 // IMPORT ROUTES
 const spotRoutes = require("./api/routes/spots");
+const userRoutes = requiee("api/routes/users");
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true
