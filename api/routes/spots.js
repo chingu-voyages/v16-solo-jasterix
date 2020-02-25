@@ -4,6 +4,34 @@ const mongoose = require("mongoose");
 
 const Spot = require("../models/spot");
 
+///////////////////////// CREATE one spot
+router.post("/newspot", (request, response, next) => {
+  const spot = new Spot({
+    _id: new mongoose.Types.ObjectId(),
+    name: request.body.name,
+    address: request.body.address,
+    spotType: request.body.spotType,
+    addressNumber: request.body.addressNumber,
+    addressStreet: request.body.addressStreet,
+    addressCity: request.body.addressCity,
+    addressState: request.body.addressState,
+    addressZipcode: request.body.addressZipcode
+  });
+
+  spot
+    .save()
+    .then(result => {
+      response.status(201).json({
+        message: "Created a new Spot sucessfully"
+      });
+      console.log(result);
+    })
+    .catch(error => console.log(error));
+  response.status(500).json({
+    error: error
+  });
+});
+
 //////////////////////////GET all spots
 router.get("/", (request, response, next) => {
   Spot.find()
@@ -39,34 +67,6 @@ router.get("/:spotId", (req, res, next) => {
       console.log(err);
       res.status(500).json({ error: err });
     });
-});
-
-///////////////////////// POST spot
-router.post("/", (request, response, next) => {
-  const spot = new Spot({
-    _id: new mongoose.Types.ObjectId(),
-    name: request.body.name,
-    address: request.body.address,
-    spotType: request.body.spotType,
-    addressNumber: request.body.addressNumber,
-    addressStreet: request.body.addressStreet,
-    addressCity: request.body.addressCity,
-    addressState: request.body.addressState,
-    addressZipcode: request.body.addressZipcode
-  });
-
-  spot
-    .save()
-    .then(result => {
-      response.status(201).json({
-        message: "Created a new Spot sucessfully"
-      });
-      console.log(result);
-    })
-    .catch(error => console.log(error));
-  response.status(500).json({
-    error: error
-  });
 });
 
 /////////////////// PATCH one spot

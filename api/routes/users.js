@@ -4,6 +4,26 @@ const mongoose = require("mongoose");
 
 const User = require("../models/user");
 
+///////////////////////// CREATE one user
+router.post("/add", (request, response, next) => {
+  const user = new User({
+    _id: new mongoose.Types.ObjectId(),
+    username: request.body.username
+  });
+  user
+    .save()
+    .then(result => {
+      response.status(201).json({
+        message: "Created a new User sucessfully"
+      });
+      console.log(result);
+    })
+    .catch(error => console.log(error));
+  response.status(500).json({
+    error: error
+  });
+});
+
 //////////////////////////GET all users
 router.get("/", (request, response, next) => {
   User.find()
@@ -21,52 +41,24 @@ router.get("/", (request, response, next) => {
 });
 
 ////////////////////////////// GET one user by ID
-router.get("/:userId", (req, res, next) => {
-  const id = req.params.userId;
+router.get("/:userId", (request, response, next) => {
+  const id = request.params.userId;
   User.findById(id)
     .exec()
     .then(doc => {
       console.log("From database", doc);
       if (doc) {
-        res.status(200).json(doc);
+        response.status(200).json(doc);
       } else {
-        res
+        response
           .status(404)
           .json({ message: "No valid entry found for provided ID" });
       }
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ error: err });
+      response.status(500).json({ error: err });
     });
-});
-
-///////////////////////// POST user
-router.post("/", (request, response, next) => {
-  const user = new User({
-    _id: new mongoose.Types.ObjectId(),
-    name: request.body.name,
-    address: request.body.address,
-    userType: request.body.userType,
-    addressNumber: request.body.addressNumber,
-    addressStreet: request.body.addressStreet,
-    addressCity: request.body.addressCity,
-    addressState: request.body.addressState,
-    addressZipcode: request.body.addressZipcode
-  });
-
-  user
-    .save()
-    .then(result => {
-      response.status(201).json({
-        message: "Created a new User sucessfully"
-      });
-      console.log(result);
-    })
-    .catch(error => console.log(error));
-  response.status(500).json({
-    error: error
-  });
 });
 
 /////////////////// PATCH one user
