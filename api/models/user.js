@@ -7,6 +7,5 @@ const userSchema = mongoose.Schema({
     unique: true,
     trim: true,
     minlength: 4
-    }, {
-      timestamps: true
-  });
+  }
+});

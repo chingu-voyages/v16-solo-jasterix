@@ -18,6 +18,9 @@ router.post("/add", (request, response, next) => {
       });
       console.log(result);
     })
+    .then(() => {
+      response.redirect("/");
+    })
     .catch(error => console.log(error));
   response.status(500).json({
     error: error
