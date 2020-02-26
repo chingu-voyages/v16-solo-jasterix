@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
+const Spot = require("../models/spot");
 const User = require("../models/user");
 
 ///////////////////////// CREATE one user
-router.post("/add", (request, response, next) => {
+router.post("/adduser", (request, response, next) => {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     username: request.body.username
@@ -13,18 +14,17 @@ router.post("/add", (request, response, next) => {
   user
     .save()
     .then(result => {
-      response.status(201).json({
-        message: "Created a new User sucessfully"
-      });
       console.log(result);
+      response.status(201).json({
+        message: "Created a new User successfully!"
+      });
     })
-    .then(() => {
-      response.redirect("/");
-    })
-    .catch(error => console.log(error));
-  response.status(500).json({
-    error: error
-  });
+    .catch(err => {
+      console.log(err);
+      response.status(500).json({
+        error: err
+      });
+    });
 });
 
 //////////////////////////GET all users

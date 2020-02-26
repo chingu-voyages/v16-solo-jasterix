@@ -33,7 +33,7 @@ router.post("/newspot", (request, response, next) => {
 });
 
 //////////////////////////GET all spots
-router.get("/", (request, response, next) => {
+router.get("/spots", (request, response, next) => {
   Spot.find()
     .exec()
     .then(docs => {
@@ -49,16 +49,16 @@ router.get("/", (request, response, next) => {
 });
 
 ////////////////////////////// GET one spot by ID
-router.get("/:spotId", (req, res, next) => {
-  const id = req.params.spotId;
+router.get("/:spotId", (request, response, next) => {
+  const id = request.params.spotId;
   Spot.findById(id)
     .exec()
     .then(doc => {
       console.log("From database", doc);
       if (doc) {
-        res.status(200).json(doc);
+        response.status(200).json(doc);
       } else {
-        res
+        response
           .status(404)
           .json({ message: "No valid entry found for provided ID" });
       }
