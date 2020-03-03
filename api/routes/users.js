@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const Spot = require("../models/spot");
 const User = require("../models/user");
 
+//Debugging 3/2
 ///////////////////////// CREATE one user
 router.post("/adduser", (request, response, next) => {
   const user = new User({
