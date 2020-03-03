@@ -8,9 +8,11 @@ const User = require("../models/user");
 //Debugging 3/2
 ///////////////////////// CREATE one user
 router.post("/", (request, response, next) => {
+  console.log(request.body[0].username);
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
-    username: request.body.username
+    username: request.body[0].username,
+    password: request.body[0].password
   });
   user
     .save()
