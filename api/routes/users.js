@@ -7,7 +7,7 @@ const User = require("../models/user");
 
 //Debugging 3/2
 ///////////////////////// CREATE one user
-router.post("/", (request, response, next) => {
+router.post("/newuser", (request, response, next) => {
   console.log(request.body[0].username);
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
