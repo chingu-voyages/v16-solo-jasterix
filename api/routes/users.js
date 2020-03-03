@@ -7,7 +7,7 @@ const User = require("../models/user");
 
 //Debugging 3/2
 ///////////////////////// CREATE one user
-router.post("/adduser", (request, response, next) => {
+router.post("/", (request, response, next) => {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     username: request.body.username
@@ -36,10 +36,10 @@ router.get("/", (request, response, next) => {
       console.log(docs);
       response.status(200).json(docs);
     })
-    .catch(error => {
-      console.log(error);
-      response.status(500).json({
-        error: error
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
       });
     });
 });

@@ -4,7 +4,7 @@ const userSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   username: {
     type: String,
-    required: false,
+    required: true,
     unique: true,
     trim: true,
     minlength: 4
