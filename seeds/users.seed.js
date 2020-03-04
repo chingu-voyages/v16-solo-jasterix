@@ -10,5 +10,9 @@ module.exports = [
   {
     name: "Shion",
     password: "12345678"
+  },
+  {
+    name: "test5",
+    password: "12345678"
   }
 ];
