@@ -2,7 +2,7 @@ const faker = require("faker");
 const mongoose = require("mongoose");
 const User = require("../api/models/user.js");
 
-const seedUsers = async () => {
+const userSeed = async () => {
   try {
     const quantity = 10;
     const users = [];
@@ -20,4 +20,5 @@ const seedUsers = async () => {
   }
 };
 
-seedUsers();
+userSeed();
+module.exports = userSeed;
