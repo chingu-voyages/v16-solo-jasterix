@@ -5,7 +5,7 @@ node_modules/
 tests
 
 # dotenv environment variables file
-# .env
+.env
 .env.test
 
 route.rest
