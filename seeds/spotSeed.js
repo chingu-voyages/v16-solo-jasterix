@@ -2,7 +2,7 @@ const faker = require("faker");
 const mongoose = require("mongoose");
 const Spot = require("../api/models/spot.js");
 
-const seedSpots = async () => {
+const spotSeed = async () => {
   try {
     const quantity = 10;
     const spots = [];
@@ -21,10 +21,13 @@ const seedSpots = async () => {
         })
       );
     }
+    spots.forEach(spot => {
+      Spot.create(spot);
+    });
     console.log(spots);
   } catch (error) {
     console.log(error);
   }
 };
 
-seedSpots();
+spotSeed();
