@@ -67,7 +67,7 @@ router.get("/:userId", (request, response, next) => {
     });
 });
 
-/////////////////// PATCH one user
+/////////////////// PATCH one user by ID
 router.patch("/:userId", (request, res, next) => {
   const id = request.params.userId;
   const updateOperations = {};
@@ -88,7 +88,7 @@ router.patch("/:userId", (request, res, next) => {
     });
 });
 
-/////////////////// DELETE one user
+/////////////////// DELETE one user by ID
 router.delete("/:userId", (request, response, next) => {
   const id = request.params.userId;
   User.remove({ _id: id })
