@@ -33,7 +33,7 @@ router.post("/newspot", (request, response, next) => {
 });
 
 //////////////////////////GET all spots
-router.get("/spots", (request, response, next) => {
+router.get("/", (request, response, next) => {
   Spot.find()
     .exec()
     .then(docs => {

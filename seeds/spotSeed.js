@@ -24,8 +24,8 @@ const spotSeed = async () => {
     }
     spots.forEach(spot => {
       Spot.create(spot);
+      console.log(spot);
     });
-    console.log(spots);
   } catch (error) {
     console.log(error);
   }
