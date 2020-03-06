@@ -9,6 +9,7 @@ const spotSeed = async () => {
     for (let s = 0; s < quantity; s++) {
       spots.push(
         new Spot({
+          _id: new mongoose.Types.ObjectId(),
           name: faker.company.companyName(),
           spotType: "food",
           website: faker.internet.url(),

@@ -11,7 +11,7 @@ const spotSchema = mongoose.Schema(
     addressStreet: { type: String, required: false },
     addressCity: { type: String, required: false },
     addressState: { type: String, required: false },
-    addressZipcode: { type: Number, required: false }
+    addressZipcode: { type: String, required: false }
   },
   {
     timestamps: true

@@ -38,7 +38,7 @@ app.use((request, response, next) => {
   next();
 });
 
-Routes which should handle requests
+// Routes which should handle requests
 app.use("/spots", spotRoutes);
 app.use((req, res, next) => {
   const error = new Error("Not found yea");
@@ -46,13 +46,13 @@ app.use((req, res, next) => {
   next(error);
 });
 
-// app.use("/users", userRoutes);
-// app.use((request, response, next) => {
-//   const error = new Error("Not found here");
+app.use("/users", userRoutes);
+app.use((request, response, next) => {
+  const error = new Error("Not found here");
 
-//   error.status = 404;
-//   next(error);
-// });
+  error.status = 404;
+  next(error);
+});
 
 app.use((error, request, response, next) => {
   response.status(error.status || 500);
