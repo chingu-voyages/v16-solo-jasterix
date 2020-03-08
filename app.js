@@ -10,9 +10,11 @@ const mongoose = require("mongoose");
 const userRoutes = require("./api/routes/users");
 const spotRoutes = require("./api/routes/spots");
 
-mongoose.connect(process.env.DATABASE_URL, {
-  useNewUrlParser: true
-});
+mongoose
+  .connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true
+  })
+  .catch(err => console.log(err));
 
 // Log when connection is successful
 const db = mongoose.connection;
