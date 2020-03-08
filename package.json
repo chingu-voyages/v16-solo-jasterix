@@ -1,10 +1,12 @@
 {
-  "name": "blck-city",
+  "name": "blk-wall",
   "version": "1.0.0",
   "description": "A curated directory of black owned restaurants, bars and more in NYC",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
